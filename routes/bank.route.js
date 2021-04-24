@@ -13,18 +13,18 @@ router.post('/accounts/addAccount', (req, res) => {
    accountsControler.createAccount(req, res);    
 })
 
+// router.put('/accounts/credit/:accountNumber',(req, res) => {
+//    console.log("credit");
+//    accountsControler.creditUpdate(req, res);    
+// })
 
 //  transactions controler -----------------------------
 router.put('/accounts/deposit/:id', (req, res) => {
    console.log("deposit");
-   transactionsControler.deposit(req, res);  
-   // accountsControler
+   transactionsControler.deposit(req, res);   
 })
 
-router.put('/accounts/credit/:accountNumber',(req, res) => {
-   console.log("credit");
-   accountsControler.creditUpdate(req, res);    
-})
+
 router.put('/accounts/withdraw/:accountNumber',(req, res) => {
    console.log("withdraw");
    transactionsControler.withdraw(req, res);    
@@ -35,9 +35,11 @@ router.put('/accounts/transfer/:fromAccountNumber/:toAccountNumber',(req, res) =
    transactionsControler.transfer(req, res);    
 })
 
+
+
 // user controler----------------
 router.post('/users/addUser', (req, res) => {
-   console.log("adduser");
+   console.log("add user");
    usersControler.createUser(req, res);    
 })
 router.get('/users/allUsers',(req, res) => {

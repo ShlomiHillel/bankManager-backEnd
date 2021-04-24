@@ -1,10 +1,9 @@
 const accountsModel = require('../models/accounts.model');
-
+const usersModel = require('../models/users.model');
 
 const createAccount = (req, res) => {
     
     const {accountName, accountNumber, userIdNumber} = req.body;
-    
     const account = new accountsModel({
         accountName: accountName,
         accountNumber: accountNumber,

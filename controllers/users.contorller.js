@@ -11,7 +11,7 @@ const createUser = (req, res) => {
     });
     user.save((err) => {
         if (err) return res.json({'error': err})
-        return res.status(200).json({userIdNumber})
+        return res.status(200).json({user})
     });
 }
 
@@ -22,8 +22,8 @@ const getAllUsers = (req, res) => {
 }
 
 const getUser = (req, res) => {
-    usersModel.find({}).then((users) => {
-        return res.send(users)
+    usersModel.find({}).then((user) => {
+        return res.send(user)
     });
 }
 
