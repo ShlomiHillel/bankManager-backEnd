@@ -7,35 +7,44 @@ const usersControler = require('../controllers/users.contorller');
 
 
 
-router.post('/addUser', (req, res) => {
-   console.log("add");
-   usersControler.addUser(req, res);    
+// accounts controler----------------
+router.post('/accounts/addAccount', (req, res) => {
+   console.log("addaccount");
+   accountsControler.createAccount(req, res);    
 })
 
-router.put('/deposit/:id', (req, res) => {
+
+//  transactions controler -----------------------------
+router.put('/accounts/deposit/:id', (req, res) => {
    console.log("deposit");
-   transactionsControler.deposit(req, res);    
+   transactionsControler.deposit(req, res);  
+   // accountsControler
 })
 
-router.put('/credit/:id',(req, res) => {
+router.put('/accounts/credit/:accountNumber',(req, res) => {
    console.log("credit");
    accountsControler.creditUpdate(req, res);    
 })
-router.put('/withdraw/:id',(req, res) => {
+router.put('/accounts/withdraw/:accountNumber',(req, res) => {
    console.log("withdraw");
    transactionsControler.withdraw(req, res);    
 })
 
-router.put('/transfer/:id1/:id2',(req, res) => {
+router.put('/accounts/transfer/:fromAccountNumber/:toAccountNumber',(req, res) => {
    console.log("transfer");
    transactionsControler.transfer(req, res);    
 })
-router.get('/allUsers',(req, res) => {
-   console.log("showAllUsers");
-   usersControler.getAll(req, res);
-})
 
-router.get('/user/:id',(req, res) => {
+// user controler----------------
+router.post('/users/addUser', (req, res) => {
+   console.log("adduser");
+   usersControler.createUser(req, res);    
+})
+router.get('/users/allUsers',(req, res) => {
+   console.log("showAllUsers");
+   usersControler.getAllUsers(req, res);
+})
+router.get('/users/user/:userIdNumber',(req, res) => {
    console.log("showOneUser");
    usersControler.getUser(req, res)
 })

@@ -2,31 +2,32 @@ const accountsModel = require('../models/accounts.model');
 
 
 const createAccount = (req, res) => {
-    // const data = req.body;
-    const {roomName, roomNumber, floor} = req.body;
-    if (roomNumber < 0) {
-        return res.json({"error": "asfsaf"})
-    }
-    const room = new accountsModel({
-        roomName: roomName,
-        roomNumber: roomNumber,
-        floor: floor,
+    
+    const {accountName} = req.body;
+    
+    const account = new accountsModel({
+        accountName: accountName,
+        accountNumber: accountNumber,
+        balance: balance,
+        credit: credit,
+        isActive: true,
+        openDate: openDate,
     });
-    room.save((err) => {
+    account.save((err) => {
         if (err) return res.json({"error": err})
-        return res.json({"success": room})
+        return res.status(200).json({accountNumber})
     });
 
 
 }
 
-const getAccount = (req, res) => {
-    accountsModel.find({}).then((rooms) => {
-        return res.send(rooms)
-    });
-}
+// const getAccount = (req, res) => {
+//     accountsModel.find({}).then((x) => {
+//         return res.send(x)
+//     });
+// }
 
 module.exports = {
-    create: createAccount,
-    getAll: getAccount,
+    createAccount,
+    // getAccount: getAccount,
 }

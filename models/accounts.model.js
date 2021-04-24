@@ -20,6 +20,25 @@ const accountsSchema = mongoose.Schema({
         //     }
         // }
     },
+    userIdNumber: {
+        type: Number,
+        required: true,
+        unique: true,
+        max : 9999999,
+        min: 000000001,
+    },
+    balance : {
+        type : Number,
+        required : false,
+        unique: false,
+        default : 0
+    },
+    credit : {
+        type : Number,
+        required : false,
+        unique: false,
+        default : 0
+    },
     isActive: {
         type: Boolean,
         required: false,

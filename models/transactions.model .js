@@ -1,34 +1,28 @@
 const mongoose = require('mongoose');
 const transactionsSchema = mongoose.Schema({
-    roomName: {
-        type: String,
-        required: false,
-        unique: false,
+    toAccountNumber: {
+        type: Number,
+        required: true,
+        unique: true,
         max : 9,
-        min:9
+        min: 5,
     },
-    roomNumber: {
+    fromAccountNumber: {
         type: Number,
         required: true,
-        unique: true
+        unique: true,
+        max : 9,
+        min: 5,
     },
-    floor: {
-        type: Number,
-        required: true,
-        unique: false,
-
-
-        validate(value) {
-            if(value < 0 || value > 100 || value === 3){
-                throw new Error('floor number must be 0 or more')
-            }
-        }
+    action : {
+        type : String,
+        required : true,
+        unique : false
     },
-    isActive: {
-        type: Boolean,
-        required: false,
-        unique: false,
-        default : true
+    amount : {
+        type : Number,
+        required : true,
+        unique : false
     },
     date: {
         type: Date,
