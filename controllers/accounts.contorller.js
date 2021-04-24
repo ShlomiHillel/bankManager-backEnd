@@ -3,19 +3,20 @@ const accountsModel = require('../models/accounts.model');
 
 const createAccount = (req, res) => {
     
-    const {accountName} = req.body;
+    const {accountName, accountNumber, userIdNumber} = req.body;
     
     const account = new accountsModel({
         accountName: accountName,
         accountNumber: accountNumber,
-        balance: balance,
-        credit: credit,
+        userIdNumber: userIdNumber,
+        balance: 0,
+        credit: 0,
         isActive: true,
-        openDate: openDate,
+        // openDate: openDate,
     });
     account.save((err) => {
-        if (err) return res.json({"error": err})
-        return res.status(200).json({accountNumber})
+        if (err) return res.json({"account error": err})
+        return res.status(200).json({account})
     });
 
 
@@ -28,6 +29,6 @@ const createAccount = (req, res) => {
 // }
 
 module.exports = {
-    createAccount,
+    createAccount: createAccount,
     // getAccount: getAccount,
 }

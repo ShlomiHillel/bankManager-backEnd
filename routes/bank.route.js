@@ -9,7 +9,7 @@ const usersControler = require('../controllers/users.contorller');
 
 // accounts controler----------------
 router.post('/accounts/addAccount', (req, res) => {
-   console.log("addaccount");
+   console.log("add account");
    accountsControler.createAccount(req, res);    
 })
 

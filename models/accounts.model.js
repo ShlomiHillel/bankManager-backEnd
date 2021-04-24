@@ -10,9 +10,9 @@ const accountsSchema = mongoose.Schema({
     accountNumber: {
         type: Number,
         required: true,
-        unique: true,
-        max : 9,
-        min: 5,
+        // unique: true,
+        // max : 9,
+        // min: 5,
 
         // validate(value) {
         //     if(value < 00001 || value > 9999999 || value === 3){
@@ -45,12 +45,12 @@ const accountsSchema = mongoose.Schema({
         unique: false,
         default : true
     },
-    openDate: {
-        type: Date,
-        required: false,
-        unique: false,
-        default : Date.now()
-    }
+    // openDate: {
+    //     type: Date,
+    //     required: false,
+    //     unique: false,
+    //     default : Date.now()
+    // }
 })
 
 const accountsModel  = mongoose.model('accounts',accountsSchema);
