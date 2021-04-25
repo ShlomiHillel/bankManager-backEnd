@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const accountsSchema = mongoose.Schema({
-    // accountName: {
-    //     type: String,
-    //     required: false,
-    //     unique: false,
-    //     max : 15,
-    //     min:2,
-    // },
+    accountName: {
+        type: String,
+        required: false,
+        unique: false,
+        max : 15,
+        min:2,
+    },
     accountNumber: {
         type: Number,
         required: true,

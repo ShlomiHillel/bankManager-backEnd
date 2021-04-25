@@ -22,7 +22,7 @@ const getAllUsers = (req, res) => {
 }
 
 const getUser = (req, res) => {
-    usersModel.find({}).then((user) => {
+    usersModel.findById({}).then((user) => {
         return res.send(user)
     });
 }

@@ -23,6 +23,7 @@ try {
         fromAccountNumber: accountNumber ,    
         action: 'deposit',
         amount: amount,
+        date: new Date()
     });
     const aprove = await transaction.save((err) => {
         if (err) return res.json({"error": err})
@@ -55,6 +56,7 @@ try {
         fromAccountNumber: accountNumber ,    
         action: 'withdraw',
         amount: -(amount),
+        date: new Date()
     });
     const aprove = await transaction.save((err) => {
         if (err) return res.json({"error": err})
@@ -93,6 +95,8 @@ try {
         fromAccountNumber: fromAccountNumber ,    
         action: 'transfer',
         amount: amount,
+        date: new Date()
+        
     });
     const aprove = await transaction.save((err) => {
         if (err) return res.json({"error": err})

@@ -19,7 +19,7 @@ router.post('/accounts/addAccount', (req, res) => {
 // })
 
 //  transactions controler -----------------------------
-router.put('/accounts/deposit/:id', (req, res) => {
+router.patch('/accounts/deposit/:accountNumber', (req, res) => {
    console.log("deposit");
    transactionsControler.deposit(req, res);   
 })
